@@ -1,0 +1,1 @@
+cmd_/home/aluno/linuxdistro/buildroot/modules/simple_driver/built-in.o :=  rm -f /home/aluno/linuxdistro/buildroot/modules/simple_driver/built-in.o; ar rcSTPD /home/aluno/linuxdistro/buildroot/modules/simple_driver/built-in.o

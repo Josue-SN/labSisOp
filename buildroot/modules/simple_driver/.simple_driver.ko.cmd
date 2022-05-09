@@ -1,0 +1,1 @@
+cmd_/home/aluno/linuxdistro/buildroot/modules/simple_driver/simple_driver.ko := ld -r -m elf_i386 -T ./scripts/module-common.lds --build-id  -o /home/aluno/linuxdistro/buildroot/modules/simple_driver/simple_driver.ko /home/aluno/linuxdistro/buildroot/modules/simple_driver/simple_driver.o /home/aluno/linuxdistro/buildroot/modules/simple_driver/simple_driver.mod.o ;  true
