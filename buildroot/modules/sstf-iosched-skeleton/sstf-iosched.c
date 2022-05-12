@@ -62,26 +62,27 @@ static void sstf_add_request(struct request_queue *q, struct request *rq){
 	struct sstf_data *nd = q->elevator->elevator_data;
 	char direction = 'R';
 		
-	if (list_empty(&nd->queue) == 0)
-	{
+	//if (list_empty(&nd->queue) == 0)
+	//{
 		struct request *iteratorLeft;
 		struct request *iteratorRight;
 		struct list_head *ptr;
 		struct list_head *n;
 
-		list_for_each_safe(ptr,n,&nd->queue){
-			iteratorRight = list_first_entry_or_null(ptr, struct request, queuelist);
-			iteratorLeft = list_first_entry_or_null(ptr->prev, struct request, queuelist);
-			if(blk_rq_pos(iteratorLeft) < blk_rq_pos(rq) < blk_rq_pos(iteratorRight)){
-				list_add_tail(&rq->queuelist, ptr);
-				printk(KERN_EMERG "[SSTF] add %c %llu\n", direction, blk_rq_pos(rq));
-			}
-		}
-	}else{
+	//	list_for_each_safe(ptr,n,&nd->queue){
+	//		iteratorRight = list_first_entry_or_null(ptr, struct request, queuelist);
+	//		iteratorLeft = list_first_entry_or_null(ptr->prev, struct request, queuelist);
+	//		if(blk_rq_pos(iteratorLeft) < blk_rq_pos(rq) < blk_rq_pos(iteratorRight)){
+	//			list_add_tail(&rq->queuelist, ptr);
+	//			//list_bulk_move_tail(ptr,)
+	//			printk(KERN_EMERG "[SSTF] add %c %llu\n", direction, blk_rq_pos(rq));
+	//		}
+	//	}
+	//}else{
 		list_add_tail(&rq->queuelist, &nd->queue);
 		printk(KERN_EMERG "[SSTF] add %c %llu\n", direction, blk_rq_pos(rq));
 
-	}
+	//}
 	/* Aqui deve-se adicionar uma requisição na fila do driver.
 	 * Use como exemplo o driver noop-iosched.c
 	 *
